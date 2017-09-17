@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 # Removes all ssh keys
+# Tested:
+#   Ubuntu 16.04
 
 KEY_FILE=~/.ssh/authorized_keys
 
