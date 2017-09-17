@@ -1,13 +1,8 @@
 FROM ubuntu:16.04
 
 RUN apt update \
-    && apt install wget build-essential -y \
+    && apt install wget build-essential ufw -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -ms /bin/bash steve
-USER steve
-
-WORKDIR /home/steve
-ADD . .
-
-EXPOSE 1514
+ADD . /opt/scripts
+WORKDIR /opt/scripts
