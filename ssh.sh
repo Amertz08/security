@@ -14,7 +14,7 @@ dall() {
 }
 
 # Moves SSH config file and restarts service
-sshconf() {
+mvconf() {
     echo "Moving SSH config"
     mv sshd_config.txt /etc/ssh/sshd_config
     service ssh restart
