@@ -5,7 +5,7 @@
 
 lkfs() {
     echo "Lock down fs"
-    echo "none /run/shm tmpfs defaults,ro 0 0" >> /etc/fstab
+    echo "none /run/shm tmpfs rw,noexec,nosuid,nodev 0 0" >> /etc/fstab
     cat /etc/fstab
 }
 
@@ -19,10 +19,6 @@ lkh() {
     chmod 0750 /home/$1
 }
 
-lsh() {
-    ls /home
-}
-
 ucreate() {
     if [ -z "$1" ]; then
         echo "No username provided"
@@ -33,20 +29,19 @@ ucreate() {
     fi
 }
 
-case $1 in
-    (lkfs)
+
+main() {
+    echo "Enter new username:"
+    read uname
+
+    if [ $uname ]; then
+        ucreate $uname
+        lkh $uname
         lkfs
-        ;;
-    (ucreate)
-        ucreate $2
-        ;;
-    (lkh)
-        lkh $2
-        ;;
-    (lsh)
-        lsh
-        ;;
-    (nosudo)
         nosudo
-        ;;
-esac
+    else
+        echo "No username provided"
+    fi
+}
+
+main
