@@ -25,10 +25,16 @@ ucreate() {
     else
         useradd $1 -m
         passwd $1
+        usermod -aG sudo $1
         echo "Created user: $1"
     fi
 }
 
+sshconf() {
+    echo "Moving SSH config"
+    mv sshd_config.txt /etc/ssh/sshd_config
+    service ssh restart
+}
 
 main() {
     echo "Enter new username:"
@@ -39,6 +45,7 @@ main() {
         lkh $uname
         lkfs
         nosudo
+        sshconf
     else
         echo "No username provided"
     fi
