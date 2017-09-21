@@ -6,7 +6,6 @@
 lkfs() {
     echo "Lock down fs"
     echo "none /run/shm tmpfs rw,noexec,nosuid,nodev 0 0" >> /etc/fstab
-    cat /etc/fstab
 }
 
 nosudo() {
