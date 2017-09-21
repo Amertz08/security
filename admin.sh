@@ -36,12 +36,6 @@ users() {
     done
 }
 
-sshconf() {
-    echo "Moving SSH config"
-    mv sshd_config.txt /etc/ssh/sshd_config
-    service ssh restart
-}
-
 main() {
     echo "Enter new username:"
     read uname
