@@ -29,6 +29,13 @@ ucreate() {
     fi
 }
 
+# Print all user in passwd
+users() {
+    for X in $(cut -f1 -d ':' /etc/passwd | sort | uniq); do
+        echo "User: $X"
+    done
+}
+
 sshconf() {
     echo "Moving SSH config"
     mv sshd_config.txt /etc/ssh/sshd_config
