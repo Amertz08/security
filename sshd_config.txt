@@ -92,6 +92,6 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes
 
 AllowTcpForwarding no
-AllowStreamLocalForwarding
+AllowStreamLocalForwarding no
 GatewayPorts no
 PermitTunnel no
