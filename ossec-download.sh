@@ -20,4 +20,9 @@ fi
 # Extract and clean up
 tar -zxvf ossec-hids-*.tar.gz -C /opt/ossec --strip-components=1
 rm ossec-hids-*.tar.gz ossec-hids-*.tar.gz.sha256
-echo "Done"
+
+if [ -f ossec.conf ]; then
+    mv ossec.conf /var/ossec/etc/ossec.conf
+else
+    echo "ossec.conf not found"
+fi
