@@ -4,7 +4,7 @@
 # Tested:
 #   Ubuntu 16.04
 
-KEY_FILE=~/.ssh/authorized_keys
+KEY_FILE=/home/$USER/.ssh/authorized_keys
 
 echo "Key file:" $KEY_FILE
 
